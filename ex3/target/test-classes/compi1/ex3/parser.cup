@@ -1,0 +1,32 @@
+package compi1.ex3;
+
+import java_cup.runtime.*;
+
+
+class Parser;
+
+parser code{:
+
+public void syntax_error(Symbol s){
+    System.out.println("hola mundo"+s.value);
+}
+
+public void unrecovered_syntax_error(Symbol s)throws java.lang.Exception{
+    System.out.println("hola mundo"+s.value);
+}
+
+:};
+
+terminal ID, NUM, COMMA, LLA, LLC, PCOMMA;
+
+non terminal L, S;
+
+start with S;
+
+S::= LLA L LLC;
+
+L ::= L PCOMMA ID
+	|L PCOMMA NUM
+	|ID
+	|NUM
+    |error;
